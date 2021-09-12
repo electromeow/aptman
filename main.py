@@ -66,6 +66,8 @@ Uses pacman -Scc\n")
     os.system("pacman -Scc")
 
 elif command == "download":
+    if len(params) < 1:
+        sys.stderr.write("Usage: aptman download package_name\n")
     if "--help" in flags:
         sys.stderr.write(
             "Usage: aptman download package_name\nDownloads the packages without installing them.\nUses pacman -Sw\n")
@@ -73,6 +75,8 @@ elif command == "download":
     os.system("pacman -Sw "+' '+params[0])
 
 elif command == "show":
+    if len(params) < 1:
+        sys.stderr.write("Usage: aptman show package_name\n")
     if "--help" in flags:
         sys.stderr.write(
             "Usage: aptman show package_name\nShows the information about a package in the repositories.\nUses pacman -Si.")
@@ -80,12 +84,16 @@ elif command == "show":
     os.system("pacman -Si "+params[0])
 
 elif command == "remove":
+    if len(params) < 1:
+        sys.stderr.write("Usage: aptman remove package_names...\n")
     if "--help" in flags:
         sys.stderr.write("Usage: aptman remove package_names...\nRemoves the packages given.\nUses pacman -Rs.\n")
         exit(0)
     os.system("pacman -Rs "+' '.join(params))
 
 elif command == "search":
+    if len(params) < 1:
+        sys.stderr.write("Usage: aptman search query\n")
     if "--help" in flags:
         sys.stderr.write("Usage: aptman search package_names...\nSearches packages. Uses pacman -Ss.\n")
         exit(0)
@@ -108,7 +116,7 @@ If there is, contribute and make me happy: https://github.com/electromeow/aptman
 
 elif command == "--help":
     sys.stderr.write("""
-aptman is a higher-level interface similar to apt(The Debian-based distro package manager) for pacman, the Arch Linux package manager.
+aptman is a higher-level interface that implements common apt(The Debian-based distro package manager) commands for pacman, the Arch Linux package manager.
 Usage: aptman command [params...]
 Available commands:
 install, update, upgrade, autoremove, autoclean,
