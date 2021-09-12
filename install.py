@@ -1,4 +1,4 @@
-import urllib.request as url
+from urllib import request as url
 import os
 
 os.system("touch /usr/local/bin/aptman")
