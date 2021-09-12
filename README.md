@@ -23,7 +23,7 @@ aptman list --upgradeable
 
 Learn more about commands using aptman --help
 
-## Installation
+## Installation
 
 Python(please not Python 2) has to be installed to use aptman naturally because it is written in Python.\
 If you haven't installed it, first install it:
