@@ -31,10 +31,17 @@ If you haven't installed it, first install it:
 $ sudo pacman -S python3
 ```
 
-Then you are ready to add it in your path(You need curl BTW. You can also use wget or sth similar else):
+Then you are ready to add it in your path(You need something like wget or curl):
 
 ```
-$ sudo python3 -c $(curl https://raw.githubusercontent.com/electromeow/aptman/master/install.py)
+# Download install script using curl
+$ curl https://raw.githubusercontent.com/electromeow/aptman/master/install.py > install.py
+# Or download install script using wget
+$ wget https://raw.githubusercontent.com/electromeow/aptman/master/install.py
+# Run the script
+$ python3 install.py
+# Then you can throw the installation script after installation
+$ rm install.py
 ```
 
 ## License
