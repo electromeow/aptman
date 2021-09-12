@@ -68,6 +68,7 @@ Uses pacman -Scc\n")
 elif command == "download":
     if len(params) < 1:
         sys.stderr.write("Usage: aptman download package_name\n")
+        exit(1)
     if "--help" in flags:
         sys.stderr.write(
             "Usage: aptman download package_name\nDownloads the packages without installing them.\nUses pacman -Sw\n")
@@ -77,6 +78,7 @@ elif command == "download":
 elif command == "show":
     if len(params) < 1:
         sys.stderr.write("Usage: aptman show package_name\n")
+        exit(1)
     if "--help" in flags:
         sys.stderr.write(
             "Usage: aptman show package_name\nShows the information about a package in the repositories.\nUses pacman -Si.")
@@ -86,6 +88,7 @@ elif command == "show":
 elif command == "remove":
     if len(params) < 1:
         sys.stderr.write("Usage: aptman remove package_names...\n")
+        exit(1)
     if "--help" in flags:
         sys.stderr.write("Usage: aptman remove package_names...\nRemoves the packages given.\nUses pacman -Rs.\n")
         exit(0)
@@ -94,6 +97,7 @@ elif command == "remove":
 elif command == "search":
     if len(params) < 1:
         sys.stderr.write("Usage: aptman search query\n")
+        exit(1)
     if "--help" in flags:
         sys.stderr.write("Usage: aptman search package_names...\nSearches packages. Uses pacman -Ss.\n")
         exit(0)
