@@ -39,7 +39,7 @@ $ curl https://raw.githubusercontent.com/electromeow/aptman/master/install.py > 
 # Or download install script using wget
 $ wget https://raw.githubusercontent.com/electromeow/aptman/master/install.py
 # Run the script
-$ python3 install.py
+$ sudo python3 install.py
 # Then you can throw the installation script after installation
 $ rm install.py
 ```
