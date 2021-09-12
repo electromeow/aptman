@@ -1,7 +1,9 @@
+#!/usr/bin/python3
+
 import sys
 import os
 
-args = [sys.argv[1:]]
+args = sys.argv[1:]
 if len(args) < 1:
     sys.stderr.write(
         "No command specified. Usage: aptman command [params...]\n")
@@ -46,7 +48,7 @@ elif command == "autoremove":
         sys.stderr.write("Usage: aptman autoremove\nRemoves the dependencies\
 installed on the system which aren't needed.\n")
         exit(0)
-    os.system("pacman -Qmq | pacman -Rs -")
+    os.system("pacman -Qtdq | pacman -Rs -")
 
 elif command == "autoclean":
     if "--help" in flags:
@@ -81,8 +83,7 @@ elif command == "remove":
     if "--help" in flags:
         sys.stderr.write("Usage: aptman remove package_names...\nRemoves the packages given.\nUses pacman -Rs.\n")
         exit(0)
-    for i in params:
-        os.system("pacman -Rs "+i)
+    os.system("pacman -Rs "+' '.join(params))
 
 elif command == "search":
     if "--help" in flags:
